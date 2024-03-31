@@ -6,12 +6,13 @@
 
 function createElements() {
 
+    // Main
     let elementsMain = document.createElement("main")
-    elementsMain.textContent = "{Main}"
+    document.body.appendChild(elementsMain)
 
+    // Section
     let elementsSection = document.createElement("section")
-    elementsSection.textContent = "{Section}"
-
+    elementsMain.appendChild(elementsSection)
 
 
     // Section Children
@@ -29,14 +30,15 @@ function createElements() {
         To make it fun, and maybe a bit tricky, I've added several types of elements.
         Some elements are pretty simple like these `
     )
+    elementsCode.textContent = "<p>"
     postCodeText = document.createTextNode(` tags.
         Others are more going to require extra attributes or mixing text nodes with element nodes.
     `)
 
     //let codeText = document.createTextNode("&lt;p&gt;");
-    elementsCode.textContent = "<p>"
-
     //elementsCode.appendChild(codeText)
+
+    // Special p tag within second paragraph
     elementsP2.appendChild(preCodeText)
     elementsP2.appendChild(elementsCode)
     elementsP2.appendChild(postCodeText)
@@ -45,13 +47,31 @@ function createElements() {
     elementsSection.appendChild(elementsH1)
     elementsSection.appendChild(elementsP1)
     elementsSection.appendChild(elementsP2)
-    elementsMain.appendChild(elementsSection)
+
+
+    // Aside
+    let elementsAside = document.createElement("aside")
+    elementsAside.textContent = "{aside}"
+
+    let elementsImg = document.createElement("img")
+    elementsImg.src = "assets/mario.png"
+    elementsAside.appendChild(elementsImg)
+
+    let blockquote = document.createElement("blockquote")
+    blockquote.textContent = 'Mario says "Wahoo!" to homework'
+    elementsAside.appendChild(blockquote)
+
+    let audio = document.createElement("audio")
+    audio.controls = "true"
+    audio.autoplay = "false"
+    audio.src = "assets/Super Mario Bros. medley.mp3"
+    elementsAside.appendChild(audio)
 
 
 
 
 
-    document.body.appendChild(elementsMain)
+    document.body.appendChild(elementsAside)
 
 
 
